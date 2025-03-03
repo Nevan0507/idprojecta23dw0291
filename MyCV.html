@@ -1,0 +1,116 @@
+<!-- Web Project Code -->
+<!DOCTYPE html>
+<html>
+<head>    <title>Personal Website</title>
+    <style>
+        body {
+            background-color: purple;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .section {
+            display: none;
+        }
+    </style>
+    <script>
+        function resetTools() {
+            document.getElementById('calculator').style.display = 'none';
+            document.getElementById('bmi').style.display = 'none';
+            document.getElementById('zakat').style.display = 'none';
+            document.getElementById('unitConverter').style.display = 'none';
+        }
+        function showSection(sectionId) {
+            resetTools();
+            document.getElementById('personal').style.display = 'none';
+            document.getElementById('tools').style.display = 'none';
+            document.getElementById(sectionId).style.display = 'block';
+            
+            if (sectionId === 'personal') {
+                document.body.style.backgroundColor = 'indigo';
+            } else if (sectionId === 'tools') {
+                document.body.style.backgroundColor = 'red';
+            } else {
+                document.body.style.backgroundColor = 'purple';
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Personal Website</h1>
+        <button onclick="showSection('welcome')">Home</button>
+        <button onclick="showSection('personal')">Profile</button>
+        <button onclick="showSection('tools')">Tools</button>
+    </header>
+    
+    <section id="personal" class="section">
+        <h2>My Personal Information</h2>
+        <img src="profile.jpg" alt="My Photo" style="width: 3.5cm; height: 4.5cm;">
+        <p>Name: Nevan Dass</p>
+        <p>Matric: A23DW0291</p>
+        <p>Program & Section: DDWD2703 - SECTION 42</p>
+        <a href="cv.pdf" download>Download My CV</a>
+    </section>
+    <section id="tools" class="section">
+        <h2>Tools</h2>
+        <button onclick="showSection('calculator')">Simple Calculator</button>
+        <button onclick="showSection('bmi')">BMI Checker</button>
+        <button onclick="showSection('zakat')">Zakat or Income Tax Calculator</button>
+        <button onclick="showSection('unitConverter')">Unit Converter</button>
+    </section>
+    <section id="calculator" class="section">
+        <h2>Simple Calculator</h2>
+        <input type="number" id="num1" placeholder="Enter first number">
+        <input type="number" id="num2" placeholder="Enter second number">
+        <button onclick="calculate('add')">Add</button>
+        <button onclick="calculate('subtract')">Subtract</button>
+        <button onclick="calculate('multiply')">Multiply</button>
+        <button onclick="calculate('divide')">Divide</button>
+        <p id="calcResult"></p>
+        <button onclick="showSection('tools'); resetTools()">Back</button>
+    </section>
+    <section id="bmi" class="section">
+        <h2>BMI Checker</h2>
+        <input type="number" id="weight" placeholder="Weight (kg)">
+        <input type="number" id="height" placeholder="Height (m)">
+        <button onclick="calculateBMI()">Check BMI</button>
+        <p id="bmiResult"></p>
+        <button onclick="showSection('tools'); resetTools()">Back</button>
+    </section>
+    <section id="zakat" class="section">
+        <h2>Zakat or Income Tax Calculator</h2>
+        <input type="number" id="income" placeholder="Enter your income">
+        <button onclick="calculateZakat()">Calculate Zakat</button>
+        <p id="zakatResult"></p>
+        <button onclick="showSection('tools'); resetTools()">Back</button>
+    </section>
+    <section id="unitConverter" class="section">
+        <h2>Unit Converter</h2>
+        <input type="number" id="unitInput" placeholder="Enter value">
+        <button onclick="convertUnits('cmToM')">cm to m</button>
+        <button onclick="convertUnits('mToCm')">m to cm</button>
+        <button onclick="convertUnits('mToKm')">m to km</button>
+        <button onclick="convertUnits('kmToM')">km to m</button>
+        <p id="convertResult"></p>
+        <button onclick="showSection('tools'); resetTools()">Back</button>
+    </section>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
